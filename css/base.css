@@ -1,0 +1,24 @@
+body,h1,h2,h3,h5,h6,pre,p,ol,ul,li,form,img input,textarea,dl,dd,dt,span,div{
+  margin:0;
+  padding:0;
+  }
+  ul,ol{
+  list-style:none;
+  }
+  a{
+  text-decoration:none;
+  
+  }
+  body,html{
+  background:#fff;
+  width: auto;
+  height: 100%;
+  background-image:url(../image/bg2.png) ;
+  background-repeat: repeat;
+  }
+  *{
+      font-family: 'SFNSDisplay', 'SFNSText', 'Helvetica Neue', sans-serif;
+      }
+  img
+  {
+  border:none;}

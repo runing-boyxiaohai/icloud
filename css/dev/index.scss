@@ -1,0 +1,807 @@
+$img:url(../image/bg.png);
+$pad:4px;
+//@each  $v in map_keys($map){                         //右边主题颜色
+//                  $l:map_get($map,$v);
+//                  $i:$i+1;
+//                  #theme .#{$v}{
+//                      color:nth($l,1)
+//                  }  
+//              }
+                
+                
+                
+                
+$colors:(
+    "purple": #C96FE2 -34px -571px  -231px   0px     -64px -401px  rgba(201,111,226,0.2),
+    "green" : #6EDC30 0px   -571px  -256px  -33px    -74px -359px  rgba(110,220,48,0.2),
+    "blue"  : #41ABF8 -51px -571px  -281px  -66px     0px -433px   rgba(65,171,248,0.2),
+    "yellow": #F3CB00 -85px -571px  -306px  -99px     -32px -465px  rgba(243,203,0,0.2), 
+    "black" : #A0855E -133px -549px  -331px  -132px   -32px -433px   rgba(160,133,94,0.2),
+    "red"   : #F72469  -68px -571px  -356px   -165px  -96px -433px  rgba(247,36,105,0.2),
+    "orange": #F89500 -102px -571px -381px   -198px   -136px -235px  rgba(248,149,0,0.2)
+);
+$colors1:(
+    "purple1":-128px -401px,
+    "green1" :-136px -199px,
+    "blue1"  :-106px -359px,
+    "yellow1":-128px -433px,
+    "black1" :-106px -359px,
+    "red1"   :-64px -433px,
+    "orange1":0px -401px
+);
+
+.main{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.left {
+  width: 389px;
+  background: #383836;
+  float: left;
+  height: 100%;
+  overflow:auto;
+  position: relative;
+  z-index: 10000;
+  #title{
+    width: 100%;
+    height: 44px;
+    border-bottom: 1px solid #1a1a1a;
+    float: left;
+    span:nth-of-type(1){
+        width: 56px;
+        height: 16px;
+        float: left;
+        margin-top: 16px;
+        background-image: url(../image/bg.png);
+        background-position: 0px -588px;
+        background-repeat: no-repeat;
+        margin-left: 13px;
+    }
+    span:nth-of-type(2){
+        line-height: 31px;
+        font-size: 21px;
+        margin-top: 8px;
+        padding: 0px 0px 0px 0px;
+        cursor: pointer;
+        margin-left: 8px;
+        text-align: left;
+        float: left;
+        font-weight: 300;
+        color:#767676;
+        position: relative;
+        i{
+            background-image: $img;
+            background-position: -51px -391px;
+            background-repeat: no-repeat;
+            width: 11px;
+            height: 7px;
+            display: inline-block;
+           position: absolute;
+            margin-left: 4px;
+            top:12px;
+        }
+    }
+    span:nth-of-type(2):hover{
+        i{
+            background-position: -155px -647px;
+        }
+        color:#bfbfbf;
+    }
+    a{
+        background-image: $img;
+        background-position: -46px -526px;
+        background-repeat: no-repeat;
+        height: 23px;
+        width: 23px;
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    a:hover{
+          background-position: -92px -526px;
+    }
+  }
+  .plan{
+      width: 100%;
+      height: 45px;
+      box-sizing: border-box;
+      padding-left: 4px;
+      float: left;
+      position: relative;
+      .clock{
+            top: 0px;
+            left: 4px;
+            height: 42px;
+            width: 42px;
+            background-image:$img;
+            background-position: 0px -359px;
+            background-repeat: no-repeat;
+      }
+      span{
+          float: left;
+          position: absolute;
+          height: 24px;
+          line-height: 24px;
+          top: 17px;
+          left: 46px;
+          right: 42px;
+          font-size: 17px;
+          color: #fff;
+          margin-top: -9px;
+          font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+      }
+      .dash{
+         position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 2px;
+        background-image: url(../image/bg1.png);
+        background-position: 0px 0px;
+        background-repeat: repeat;
+        display: block;
+      }
+  }
+  .tip{
+      width: 389px;
+      height: auto;
+      float: left;
+      padding-left: 4px;
+      box-sizing: border-box;
+      position: relative;
+       .listactive{
+               background: rgb(45, 45, 43);
+           }
+      li{
+          width: 100%;
+          position: relative;
+          height: 44px;
+          float: left;
+          .circle{
+              background-image: $img;
+              background-position: -102px -571px;
+              background-repeat: no-repeat;
+              position: absolute;
+              left: 12px;
+              top: 12px;
+              height: 17px;
+              width: 17px;
+          }
+           @each  $v in map_keys($colors){
+                 $l:map_get($colors,$v);
+                  .#{$v}{
+                    background-position: nth($l,2) nth($l,3);
+                }
+            }
+          
+          input{
+                border: none;
+                outline: none;
+                background: transparent;
+                position: absolute;
+                height: 24px;
+                line-height: 24px;
+                top: 17px;
+                left: 42px;
+                right: 42px;
+                white-space: nowrap !important;
+                font-size: 17px;
+                color: #fff;
+                width: 80px;
+                margin-top: -9px;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+          }
+          .wire{
+                 position: absolute;
+                top: 9px;
+                right: 10px;
+                width: 23px;
+                height: 23px;
+                margin: 0px;
+                cursor: pointer;
+                background-image: $img;
+                background-position: -119px -497px;
+                background-repeat: no-repeat;
+          }
+          .wire:hover{
+                background-position: 0 -526px;
+          }
+          .dot{
+               position: absolute;
+                left: 44px;
+                right: 0px;
+                bottom: 0px;
+                height: 2px;
+                background-image: url(../image/bg1.png);
+                background-position: 0px 0px;
+                background-repeat: repeat;
+          }
+      }
+  }
+}
+
+///////////////////////////////////////////////         左边
+.right{
+    width: 977px;
+    height: 100%;
+    float: left;
+    position: absolute;
+    left:389px;
+    z-index: 0;
+    .search{
+        width: 100%;
+        height: 44px;
+        border-bottom: 1px solid rgba(128,128,128,0.35);
+        position: relative;
+        input{
+            width: 50%;
+            height:44px;
+            border: 0;
+            outline: none;
+            position: relative;
+            left: 0;
+            top:0;
+            padding: 0;
+            font-size: 19px;
+            color: #333;
+            padding-left: 46px;
+            box-sizing: border-box;
+            font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei';
+            background-image:url(../image/bg2.png) ;
+            background-repeat: repeat;
+            float: left;
+           
+        }
+        span{
+            position: absolute;
+            z-index:2;
+            float: left;
+            left: 13px;
+            width: 24px;
+            top: 10px;
+            height: 24px;
+            background-image: $img;
+            background-position: -138px -359px;
+            background-repeat: no-repeat;
+        }
+        .name{
+        width: 50%;
+        float: left;
+        height: 44px;
+        padding-right: 18px;
+        text-align: right;
+        box-sizing: border-box;
+        position: relative;
+        a{
+            position: absolute;
+            font-size: 21px;
+            line-height: 30px;
+            margin-top: -15px;
+            padding: 0px 0px 0px 0px;
+            top:50%;
+            right:75px;
+            width: 100px;
+            height: 100%;
+            color: #333;
+            i{
+            background-image:$img;
+            background-position: -95px -657px;
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 11px;
+            height: 7px;
+            top:12px;
+            right:-18px;
+            }
+       }
+        .button{
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                top: 50%;
+                right: 14px;
+                margin-top: -11px;
+                background-image: $img;
+                background-position: -137px -526px;
+                background-repeat: no-repeat;
+        }
+        .sx{
+            margin-top: -11px;
+            right: 44px;
+            width: 1px;
+            top: 50%;
+            height: 22px;
+            background-color: #e5e5e5;
+            position: absolute;
+        }
+      }
+    }
+    
+    
+    
+    .remind{
+        width: 100%;
+        height: auto;
+        float: left;
+        margin-top: 24px;
+        position: relative;
+        .title{
+           font-size: 40px;
+           line-height: 1.2;
+           cursor: default;
+           color: #333;
+           text-align: left;
+           float: right;
+           width:942px ;
+           position: relative;
+           span{
+           font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;     
+           }
+           .select{
+                font-size: 19px;
+                margin-top: -9px;
+                padding: 0px 0px 0px 0px;
+                cursor: inherit;
+                top: 50%;
+                color: #b14bc9;
+                line-height: 29px;
+                right: 34px;
+                float: left;
+                position: absolute;
+                cursor: pointer;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                
+           }
+            @each  $v in map_keys($colors){                         //右边主题颜色
+                    $l:map_get($colors,$v);
+                    .#{$v}{
+                        color:nth($l,1)
+                    }  
+                }
+          
+        }
+        .hx{
+            float: right;
+            width:942px ;
+            height: 2px;
+            background-image:url(../image/bg3.png);
+            background-repeat:repeat ;
+            margin-top: 5px;
+        }
+        .date{
+            height: 52px;
+            width:942px ;
+            float: right;
+            position: relative;
+            i{                                                      //点击已完成
+                position: absolute;
+                cursor: pointer;
+                left: 11px;
+                top: 17px;
+                margin: 0px;
+                width: 23px;
+                height: 23px;
+                background-image: $img;
+                background-position: -96px -497px;
+                background-repeat: no-repeat;
+            }
+            
+            span{
+                position: absolute;
+                color: #999;
+                font-size: 19px;
+                cursor: default;
+                top: 17px;
+                left: 51px;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+            }
+            a{
+                display: none;
+                position: absolute;
+                color: #999;
+                font-size: 19px;
+                cursor: pointer;
+                top: 17px;
+                right: 51px;
+                z-index: 100;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+            }
+            @each  $v in map_keys($colors){                         //右边主题颜色
+                    $l:map_get($colors,$v);
+                    a.#{$v}{
+                        color:nth($l,1)
+                    }  
+                }
+        }
+      
+        .data1{
+            height: 42px;
+            display: none;
+            span{
+                position: relative;
+                font-weight: 600;
+                font-size: 15px;
+                color: #999;
+                top: 17px;
+                left: 0;
+            }
+        }
+       
+        
+        .hx1{
+                margin-top: 0;
+                display: none;
+            }
+        .date3{                                         //为完成和已完成间距
+            width: 100%;
+            height: 20px;
+            position: relative;
+            float: left;
+            display: none;
+        } 
+       
+        
+        .biaoqian{
+            width: 100%;
+            height: 52px;
+            position: relative;
+            float: left;
+            background: transparent;
+            display: none;
+           .bordert{
+               width: 100%;
+               height: 1px;
+               left: 0;
+               top:-1px;
+               position: absolute;
+               background: transparent;
+           }
+           .borderb{
+               width: 100%;
+               height: 1px;
+               left: 0;
+               bottom:1px;
+               position: absolute;
+               background: transparent;
+               z-index: 10;
+           }
+           .circle1{
+                background-image: $img;
+                background-position: -64px -401px;
+                background-repeat: no-repeat;
+                height: 32px;
+                width: 32px;
+                margin-left: 40px;
+                margin-top: 10px;
+                border: none;
+                cursor: pointer;
+                float: left;
+           }
+           
+            @each  $v in map_keys($colors){
+                    $l:map_get($colors,$v);
+                      .#{$v}{
+                        background-position: nth($l,6) nth($l,7);
+                    }
+                }
+            @each  $v in map_keys($colors1){
+                    $l:map_get($colors1,$v);
+                      .#{$v}{
+                        background-position: nth($l,1) nth($l,2);
+                    }
+                }
+          input{
+                    color: #333;
+                    font-size: 19px;
+                    line-height: 52px;
+                    left: 86px;
+                    top: 0px;
+                    height: auto;
+                    width: 869px;
+                    height: 52px;
+                    font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                    z-index: 100;
+                    float: left;
+                    
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    position: absolute;
+           }
+           .time{
+                 position: absolute;
+                 top: 26px;
+                 left: 86px;
+                 color: #b14bc9;
+                 line-height: 24px;
+                 font-size: 15px;
+                 font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                    
+           }
+           .info{
+                position: absolute;
+                font-size: 19px;
+                height: 52px;
+                text-align: right;
+                right: 51px;
+                top:15px;
+                display: none;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                z-index: 1000;
+                cursor: pointer;
+           }
+            @each  $v in map_keys($colors){
+                    $l:map_get($colors,$v);
+                      .info.#{$v}{
+                       color: nth($l,1);
+                       display: none;
+                    }
+                }
+             .underline{
+               right: 0;
+               width: 890px;
+               height: 2px;
+               bottom: 0;
+               position: absolute;
+               background-image:url(../image/bg3.png);
+               background-repeat:repeat ;
+           } 
+       
+        }
+       
+          @each  $v in map_keys($colors){                         //右边主题颜色
+                    $l:map_get($colors,$v);
+                    .#{$v}.biaoqian{
+                       background:nth($l,8) ;
+                       .bordert{
+                           background: nth($l,1);
+                       }
+                       .borderb{
+                           background: nth($l,1);
+                       }
+                       .info{
+                           display: block;
+                       }
+                    } 
+                    
+            } 
+       
+        
+        .biaoqian1{
+            display: block;
+        }
+        .hx2{
+            width: 890px;
+        }
+        .project{
+            height: 52px;
+            width:942px ;
+            float: right; 
+            position: relative;
+            cursor: pointer;
+            span{
+                height: 23px;
+                line-height: 23px;
+                position: absolute;
+                top: 14px;
+                left: 51px;
+                color: #999;
+                font-size: 19px;
+                right: 4px;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+            }
+          
+        }
+    }
+    .hide .data1{                                       //隐藏的现实出来
+            display: block;
+        }
+        
+    .hide .date i{
+                background-position: -23px -526px;
+        }
+    .hide .date a{
+            display: block;
+        }
+    .hide .biaoqian{
+            display: block;
+        }
+     .hide .hx1{
+            display: block;
+        }  
+     .hide .date3{
+            display: block;
+        }
+         
+        
+        
+        
+    .list{
+        width: 370px;
+        height: 240px;
+        position: absolute;
+        z-index: 10;
+        right: 80px;
+        background: #fff;
+        top:-57px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0px rgba(0,0,0,0.2);
+        display: none;
+        z-index: 1000;
+        .lis{
+            width: 355px;
+            height: 226px;
+            border-radius: 5px;
+            border:1px solid #d9d9d9;
+            margin-left: 7px;
+            margin-top: 6px;
+            position: relative;
+            input{
+                position: relative;
+                width: 312px;
+                height: 40px;
+                border: 1px solid #d9d9d9;
+                border-radius: 2px;
+                left: 50%;
+                top:20px;
+                margin-left: -166px;
+                margin-top: 1px;
+                font-size: 25px;
+                padding-left: 15px;
+            }
+              @each  $v in map_keys($colors){                         //右边主题颜色
+                    $l:map_get($colors,$v);
+                    .#{$v}{
+                        color:nth($l,1)
+                    }  
+                }
+            p{
+               width: 314px;  
+               height: 22px;
+               position: absolute;
+               left: 50%;
+               margin-left: -166px;
+               top: 83px;
+               color: #1a1a1a;
+               text-align: left;
+               line-height: 19px;
+               font-size: 15px;
+                font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+               
+            }
+            .colorlist{
+                left: 15px;
+                right: 0px;
+                top: 117px;
+                height: 33px;
+                position: absolute;
+                width: 316px;
+                .hh{
+                     margin-left: 10px;
+                     width: auto;
+                     height: auto;
+                     overflow: hidden;
+                     float: left;
+                    
+                }
+                .hh:nth-of-type(1){
+                    margin-left: 0;
+                   
+                }
+                .colorBg{
+                    background-image: url(../image/bg4.png);
+                   
+                    background-repeat: no-repeat;
+                    width: 33px;
+                    height: 33px;
+//                  margin-left: 10px;
+                   
+                    float: left;
+                    .colorSm{
+                        background-image:url(../image/bg4.png);
+//                      background-position: 0px -256px;
+                        background-repeat: no-repeat;
+                        width: 25px;
+                        height: 25px;
+                        margin-top: 4px;
+                        margin-left: 4px;
+                    }
+                }
+                 .colorBg:nth-of-type(1){
+                       margin-left: 0;
+                 }
+
+              
+   
+                @each  $v in map_keys($colors){
+                    $l:map_get($colors,$v);
+                   
+                      .#{$v}.colorBg{
+                        background-position: 0px nth($l,5);
+                        .colorSm{
+                            background-position: 0px nth($l,4);
+                        }
+                    }
+                    .activeq{
+                       background: none;
+                    }
+                }
+            }
+               
+             span{
+                    left: 0px;
+                    right: 0px;
+                    bottom: 54px;
+                    height: 2px;
+                    border-top: 1px #ccc solid;
+                    width: 100%;
+                    position: absolute;
+                }
+            .bot{
+                width: 316px;
+                height: 35px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -158px;
+              
+                .delete{
+                    cursor: pointer;
+                    margin-top: -23px;
+                    left: 0px;
+                    width: 130px;
+                    top: 50%;
+                    height: 35px;
+                    text-align: left;
+                    color: #ff3b30;
+                    font-size: 17px;
+                    line-height: 35px;
+                    position: absolute;
+                    font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                    
+                }
+                .zz{
+                    height: 25px;
+                    border-color: rgba(0,0,0,0.1);
+                    right: 56px;
+                    width: 1px;
+                    border-left: 1px ;
+                    border-left: 1px #ccc solid;
+                    top: 0;
+                    bottom: 0;
+                    position: absolute;
+                    background-color: #fefefe;
+                }
+                .cancel{
+                        line-height: 25px;
+                        color: #007aff;
+                        padding: 0px;
+                        font-size: 17px;
+                        line-height: 24px;
+                        position: absolute;
+                        left: 200px;
+                        cursor: pointer;
+                        font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                        
+                }
+                .finish{
+                       line-height: 25px;
+                        color: #007aff;
+                        padding: 0px;
+                        font-size: 17px;
+                        font-weight: 600;
+                        line-height: 24px;
+                        position: absolute;
+                        right: 0px;
+                        cursor: pointer;
+                        font-family: 'SFNSText', 'Helvetica Neue', 'Microsoft Yahei', 'SimHei', sans-serif;
+                }
+            }
+        }
+    }
+     .active{
+        display: block;
+    }
+}

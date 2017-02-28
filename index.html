@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="book">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/angular.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/index.js">		
+		</script>
+	</head>
+	<body ng-controller="mainCtrl">
+		<div class="main">
+			<div class="left">
+			<div id="title">
+				<span></span>
+				<span>提醒事项<i></i></span>
+				<a href="javascript:;" ng-click="addlist()"></a>
+			</div>
+			<div class="plan">
+				<div class="clock"></div>
+				<span>已计划</span>
+				<div class="dash"></div>
+			</div>
+			<div my-ul ng-keydown="delete1()">
+				<!--<ul class="tip">-->
+					<li ng-repeat="v in lists  track by $index">
+						<div class="circle {{v.color}} " ></div>
+						<input type="text" readonly="readonly" ng-model="v.name"  ng-keyup="savelocal()" />
+						<div class="wire"></div>
+						<div class="dot"></div>
+					</li>
+				<!--</ul>-->
+			</div> 
+		</div>
+		<!--z左边-->
+		<div class="right" id="theme">
+			<div class="search">
+				<span></span>
+				<input type="text" placeholder="搜索所有提醒" />
+				<div class="name">
+					<a href="">闫宁<i></i></a>
+					
+					<div class="button"></div>
+					<div class="sx"></div>
+				</div>
+			</div>	
+			<div class="remind" my-thing>
+				<div class="color"></div>
+				<div class="title">
+					<span class="{{lists[cu].color}}">{{lists[cu].name}}</span>
+					<div class="select {{lists[cu].color}}" ng-x>选项</div>
+				</div>
+				<div class="hx"></div>
+				<div class="date">
+					<i id="hide" hide></i>
+					<span>已完成 : <b>{{count()}}</b> 项</span>
+					<a href="javascript:;" class="{{lists[cu].color}}" ng-click="clear()">清除已完成事项</a>
+				</div>
+				<div class="hx"></div>
+				<div class="date data1">
+					<span>2016年</span>  <span>11月</span>  <span>17日</span> <span>星期四</span>
+				</div>
+				<div class="hx hx1"></div>
+				<div class="biaoqian " ng-repeat="v in lists[cu].todos track by $index" ng-if="v.state==1">
+					<div class="bordert"></div>
+					<div class="borderb"></div>
+					<!--<div class="circle1 {{lists[cu].color}}"  ></div>-->
+					<div class="circle1 {{lists[cu].color}}1"></div>
+					<input type="text" ng-model="v.name" readonly="readonly"/>
+					<span class="info {{lists[cu].color}}">详细信息</span>
+					<div class="underline"></div>
+				</div>
+				
+				<div class="date3">
+				</div>
+				<div class="biaoqian biaoqian1" ng-repeat="v in lists[cu].todos" ng-if="v.state==0">
+					<div class="bordert"></div>
+					<div class="borderb"></div>
+					<div class="circle1 {{lists[cu].color}}"></div>
+					<!--<div class="circle1 {{lists[cu].color}}1"></div>-->
+					<input type="text" ng-model="v.name"  readonly="readonly"/>
+					<span class="info {{lists[cu].color}}">详细信息</span>
+					<div class="underline"></div>
+				</div>
+				
+				<!--<div class="biaoqian ">
+					<div class="bordert"></div>
+					<div class="borderb"></div>
+					<div class="circle1 {{lists[cu].color}}"></div>
+					<input type="text" value="你好" />
+					<span class="info {{lists[cu].color}}">详细信息</span>
+					<div class="underline"></div>
+				</div>
+				<div class="biaoqian">
+					<div class="bordert"></div>
+					<div class="borderb"></div>
+					<div class="circle1 {{lists[cu].color}}"></div>
+					<input type="text" value="你好" />
+					<span class="info {{lists[cu].color}}">详细信息</span>
+					<div class="underline"></div>
+				</div>-->
+				<div class="project">
+					<span>新项目</span>
+				</div>
+				<div class="hx hx1 hx2"></div>
+				
+			<!--选项-->
+				<div class="list">
+					<div class="lis">
+						<input type="text" ng-model="lists[cu].name" class="{{theme[cu2].color}}"/>
+						<p>列表颜色</p>
+						<div class="colorlist" done>
+							<div ng-repeat="v in theme" class="hh">
+								<div class="colorBg {{v.color}}" ng-class="{activeq:v.color!==lists[cu].color}">
+									<div class="colorSm"></div>
+								</div>
+							</div>
+							<!--<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>
+							<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>
+							<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>
+							<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>
+							<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>
+							<div class="colorBg">
+								<div class="colorSm"></div>
+							</div>-->
+						</div>
+						<span></span>
+						<div class="bot">
+							<div class="delete" ng-click="delete2()">删除</div>
+							<div class="cancel" ng-click="cancel()">取消</div>
+							<div class="zz"></div>
+							<div class="finish" ng-click="finish()">完成</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
